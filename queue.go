@@ -35,6 +35,9 @@ func (q *Queue) Deque() (int, error) {
 	q.length--
 	headVal := q.head.value
 	q.head = q.head.next
+	if q.length == 0 {
+		q.tail = nil
+	}
 
 	return headVal, nil
 }
