@@ -17,12 +17,12 @@ func NewQueue() *Queue {
 
 func (q *Queue) Enqueue(val int) error {
 	node := &Node{value: val}
-	q.length++
-	if q.tail == nil || q.head == nil {
+	if q.length == 0 {
 		q.tail = node
 		q.head = node
 	}
 
+	q.length++
 	q.tail.next = node
 	q.tail = node
 	return nil
